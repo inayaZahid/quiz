@@ -117,6 +117,7 @@ function draw() {
  fill("black")
  if(displayWidth<400){
    textSize(16);
+ }
   ge1.visible=false
   ge2.visible=false
   ge3.visible=false
@@ -565,4 +566,4 @@ if(touches.length>0||mousePressedOver(gh5)){
  if(gameState==="play"){}
  drawSprites()
 } 
-}
+
