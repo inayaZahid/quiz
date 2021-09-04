@@ -1,0 +1,535 @@
+
+  var gameState="serve"
+var score=0
+function preload(){
+ gkQi=loadImage("gkButtoni.png")
+ nextI=loadImage("next.png")
+ easyBG=loadImage("easyM.png")
+ mediumBG=loadImage("mediumM.png")
+hardBG=loadImage("hardM.png")
+show=loadImage("show.png")
+quiz=loadImage("quiz.jpg")
+bg=loadImage("question.png")
+ans=loadImage("ans.png")
+}
+function setup(){
+ createCanvas(displayWidth,displayHeight)
+ gameState="serve"
+ gkQ= createSprite(displayWidth/2,555,150,50)
+ gkQ.shapeColor="lavender"
+ gkQ.addImage(gkQi)
+ gkQ.scale=0.9
+ easyG=createSprite(displayWidth/2,140,15,15)
+ easyG.shapeColor="olive"
+ mediumG=createSprite(displayWidth/2,205,15,15)
+ mediumG.shapeColor="coral"
+ hardG=createSprite(displayWidth/2,270,15,15)
+ hardG.shapeColor="turquoise"
+ nextEG1=createSprite(displayWidth-160,100,100,20);
+ nextEG2=createSprite(displayWidth-160,150,100,20)
+ nextEG3=createSprite(displayWidth-160,200,100,20)
+ nextEG4=createSprite(displayWidth-160,250,100,20)
+ ans.scale=0.4
+ nextEG1.addImage(nextI);
+ nextEG2.addImage(nextI);
+ nextEG3.addImage(nextI)
+ nextEG4.addImage(nextI)
+ nextEG1.scale=0.5
+ nextEG2.scale=0.5
+ nextEG3.scale=0.5
+ nextEG4.scale=0.5
+ nextMG1=createSprite(displayWidth-250,100,100,20)
+ nextMG1.addImage(nextI);
+ nextMG1.scale=0.5
+ nextMG2=createSprite(displayWidth-250,150,100,20)
+ nextMG2.addImage(nextI)
+ nextMG2.scale=0.5;
+ nextMG3=createSprite(displayWidth-250,200,100,20);
+ nextMG3.addImage(nextI)
+ nextMG3.scale=0.5
+ nextMG4=createSprite(displayWidth-250,250,100,20)
+ nextMG4.addImage(nextI);
+ nextMG4.scale=0.5;
+ nextHG1=createSprite(displayWidth-340,100,100,20);
+ nextHG1.addImage(nextI)
+ nextHG1.scale=0.5
+ nextHG2=createSprite(displayWidth-340,150,100,20)
+ nextHG2.addImage(nextI)
+ nextHG2.scale=0.5
+ nextHG3=createSprite(displayWidth-340,200,100,20);
+ nextHG3.addImage(nextI)
+ nextHG3.scale=0.5
+ nextHG4=createSprite(displayWidth-340,250,100,20)
+ nextHG4.addImage(nextI)
+ nextHG4.scale=0.5
+ ge1=createSprite(50,displayHeight-200,50,20)
+ ge2=createSprite(50,displayHeight-180,50,20)
+ ge3=createSprite(50,displayHeight-150,50,20)
+ ge4=createSprite(50,displayHeight-120,50,20)
+ ge5=createSprite(50,displayHeight-90,50,20)
+ gm1=createSprite(150,displayHeight-200,50,20)
+ gm2=createSprite(150,displayHeight-180,50,20)
+ gm3=createSprite(150,displayHeight-150,50,20)
+ gm4=createSprite(150,displayHeight-120,50,20)
+ gm5=createSprite(150,displayHeight-90,50,20)
+ gh1=createSprite(250,displayHeight-210,50,20)
+ gh2=createSprite(250,displayHeight-180,50,20)
+ gh3=createSprite(250,displayHeight-150,50,20)
+ gh4=createSprite(250,displayHeight-120,50,20)
+ gh5=createSprite(250,displayHeight-90,50,20)
+ge1.addImage(ans)
+ ge2.addImage(ans)
+ ge3.addImage(ans)
+ ge4.addImage(ans)
+ ge5.addImage(ans)
+ gm1.addImage(ans)
+ gm2.addImage(ans)
+ gm3.addImage(ans)
+ gm4.addImage(ans)
+gm5.addImage(ans)
+gh1.addImage(ans)
+gh2.addImage(ans)
+gh3.addImage(ans)
+gh4.addImage(ans)
+gh5.addImage(ans)
+ge1.scale=0.4
+ge2.scale=0.4
+ge3.scale=0.4
+ge4.scale=0.4
+ge5.scale=0.4
+gm1.scale=0.4
+gm2.scale=0.4
+gm3.scale=0.4
+gm4.scale=0.4
+gm5.scale=0.4
+gh1.scale=0.4
+gh2.scale=0.4
+gh3.scale=0.4
+gh4.scale=0.4
+gh5.scale=0.4
+ gameState="start"
+ easyG.addImage(easyBG)
+ mediumG.addImage(mediumBG)
+ hardG.addImage(hardBG);
+}
+function draw() {
+  textSize(25)
+ fill("black")
+ 
+  ge1.visible=false
+  ge2.visible=false
+  ge3.visible=false
+  ge4.visible=false
+  ge5.visible=false
+  if(gameState==="start"){
+   easyG.visible=false;
+   mediumG.visible=false;
+   hardG.visible=false
+   nextEG1.visible=false
+   nextEG2.visible=false
+   nextEG3.visible=false
+   nextEG4.visible=false
+  nextMG1.visible=false
+  nextMG2.visible=false
+  nextMG3.visible=false
+  nextMG4.visible=false
+  nextHG1.visible=false
+  nextHG2.visible=false
+  nextHG3.visible=false
+  nextHG4.visible=false
+ gm1.visible=false
+  gm2.visible=false
+  gm3.visible=false
+  gm4.visible=false
+  gm5.visible=false
+  gh1.visible=false
+  gh2.visible=false
+  gh3.visible=false
+  gh4.visible=false
+  gh5.visible=false
+   background(quiz)
+   gameState="serve"
+  }
+  if(mousePressedOver(gkQ)){ 
+   gkQ.visible=false
+   easyG.visible=true
+   mediumG.visible=true
+   hardG.visible=true
+   nextMG1.visible=false
+   nextMG2.visible=false
+   nextMG3.visible=false
+   nextMG4.visible=false
+   nextHG1.visible=false
+   nextHG2.visible=false
+   nextHG3.visible=false
+   nextHG4.visible=false
+   gm1.visible=false
+   gm2.visible=false
+   gm3.visible=false
+   gm4.visible=false
+   gm5.visible=false
+   gh1.visible=false
+  gh2.visible=false
+  gh3.visible=false
+  gh4.visible=false
+  gh5.visible=false
+
+   background("orange")
+   gameState="wait"
+  }
+  if(mousePressedOver(easyG)){
+   easyG.visible=false
+   mediumG.visible=false
+   hardG.visible=false
+   gkQ.visible=false
+   nextEG4.visible=false
+   nextMG1.visible=false
+  nextMG2.visible=false
+  nextMG3.visible=false
+  nextMG4.visible=false
+   nextEG1.visible=true
+   nextHG1.visible=false
+   nextHG2.visible=false
+   nextHG3.visible=false
+   nextHG4.visible=false
+   ge1.visible=true
+   gm1.visible=false
+   gm2.visible=false
+   gm3.visible=false
+   gm4.visible=false
+   gm5.visible=false
+   gh1.visible=false
+  gh2.visible=false
+  gh3.visible=false
+  gh4.visible=false
+  gh5.visible=false
+   background("greenyellow")
+   background(bg)
+   text("how many  teeth does an adult have ?",50,100)
+   text("28",50,200)
+   text("32",300,200)
+   gameState="play"
+  } 
+  if(mousePressedOver(mediumG)){
+    easyG.visible=false
+   mediumG.visible=false
+   hardG.visible=false
+   gkQ.visible=false
+   nextEG4.visible=false
+  nextMG2.visible=false
+  nextMG3.visible=false
+  nextMG4.visible=false 
+   nextEG1.visible=true
+nextEG3.visible=false
+nextEG2.visible=false
+nextEG1.visible=false
+nextHG1.visible=false
+nextHG2.visible=false
+nextHG3.visible=false
+nextHG4.visible=false
+gm1.visible=true
+gm2.visible=false
+gm3.visible=false
+gm4.visible=false
+gm5.visible=false
+gh1.visible=false
+  gh2.visible=false
+  gh3.visible=false
+  gh4.visible=false
+  gh5.visible=false
+background("yellow");
+background(bg)
+text("national Flower of India is",50,100);
+text("lotus",50,200)
+text("rose",300,200)
+nextMG1.visible=true
+  }
+  if(mousePressedOver(hardG)){
+    easyG.visible=false
+    mediumG.visible=false
+    hardG.visible=false
+    gkQ.visible=false
+    nextEG4.visible=false
+   nextMG2.visible=false
+   nextMG3.visible=false
+   nextMG4.visible=false
+    nextEG1.visible=true
+ nextEG3.visible=false
+ nextEG2.visible=false
+ nextEG1.visible=false
+ nextHG1.visible=true
+ nextHG2.visible=false
+ nextHG3.visible=false
+ nextHG4.visible=false
+ gm1.visible=false
+ gm2.visible=false
+ gm3.visible=false
+ gm4.visible=false
+ gm5.visible=false
+ gh1.visible=true
+ gh2.visible=false
+ gh3.visible=false
+ gh4.visible=false
+ gh5.visible=false
+ background(266,100,50)
+ background(bg)
+ text("Which one is not a vegetable ",50,100);
+ text("mushroom",50,200)
+ text("lime",300,200)
+  }
+  if(mousePressedOver(nextHG1)){
+    nextHG1.visible=false
+    nextHG2.visible=true
+    gh1.visible=false
+    gh2.visible=true
+    background(266,100,50)
+    background(bg)
+    text("which is the biggest city in the world",50,100)
+    text("New York",50,200)
+    text("Tokyo",300,200)
+  }
+  if(mousePressedOver(nextHG2)){
+    nextHG2.visible=false
+    nextHG3.visible=true
+    gh2.visible=false
+    gh3.visible=true
+    background(266,100,50)
+    background(bg)
+    text("the most expensive toy company in the world is",50,100)
+    text("lego",50,200)
+    text("Mattel",300,20)
+  }
+  if(mousePressedOver(nextHG3)){
+    nextHG3.visible=false
+    nextHG4.visible=true
+    gh3.visible=false
+    gh4.visible=true
+    background(266,100,50)
+    background(bg)
+    text("where is yellow river",50,100)
+    text("Brazil",50,200)
+    text("China",300,200)
+  }
+  if(mousePressedOver(nextHG4)){
+    nextHG4.visible=false
+    gh4.visible=false
+    gh5.visible=true
+    background(266,100,50)
+    background(bg)
+    text("which is not a space station",50,100);
+    text("mir",50,200)
+    text("apollo",300,200)
+  }
+  if(mousePressedOver(nextMG1)){
+    nextMG1.visible=false
+    nextMG2.visible=true
+    gm2.visible=true
+    gm1.visible=false;
+    background("yellow");
+    background(bg)
+    text("which of these is not a luminous body",50,100);
+    text("firefly",50,200)
+    text("Moon",300,200)
+  }
+  if(mousePressedOver(nextMG2)){
+    nextMG2.visible=false
+    nextMG3.visible=true
+    gm2.visible=false
+   
+    background("yellow")
+    background(bg)
+    text("how many planets are there now ",50,100)
+    text("8",50,200);
+    text("9",300,200)
+
+gm3.visible=true
+  }
+  if(mousePressedOver(nextMG3)){
+nextMG3.visible=false
+nextMG4.visible=true
+gm4.visible=true
+gm3.visible=false
+background("yellow")
+background(bg)
+text("which is the largest country in the world",50,100)
+text("China",50,200)
+text("Russia",300,200)
+  }
+if(mousePressedOver(nextMG4)){
+  nextMG4.visible=false
+  gm5.visible=true
+gm4.visible=false
+  background("yellow")
+  background(bg)
+  text("which country's flag doesn't have red, white or blue",50,100)
+  text("Sri lanka",50,200)
+  text("China",300,200)
+}
+ if(mousePressedOver(nextEG1)){
+   nextEG1.visible=false
+   background("greenyellow")
+   background(bg)
+   text("the natural settelite of the earth is?",50,100);
+   text("stars",50,200)
+   text("moon",300,200)
+   nextEG2.visible=true;
+   nextMG1.visible=false
+  nextMG2.visible=false
+  nextMG3.visible=false
+  nextMG4.visible=false
+  nextHG1.visible=false
+  nextHG2.visible=false
+  nextHG3.visible=false
+  nextHG4.visible=false
+ ge2.visible=true
+ }
+ if(mousePressedOver(nextEG2)){
+   nextEG2.visible=false;
+   background("greenyellow");
+   background(bg)
+   text("the capital of United States Of America is",50,100);
+   text("New York",50,200);
+   text("washington DC",300,200)
+   nextEG3.visible=true;
+   nextMG1.visible=false
+  nextMG2.visible=false
+  nextMG3.visible=false
+  nextMG4.visible=false
+  nextHG1.visible=false
+  nextHG1.visible=false
+  nextHG1.visible=false
+  nextHG1.visible=false
+  ge3.visible=true
+}
+ if(mousePressedOver(nextEG3)){
+   nextEG3.visible=false
+   nextEG4.visible=true
+   background("greenyellow")
+   background(bg)
+   text("the smallest country in the world is",50,100);
+   text("vatican city",50,200)
+   text("bhutan",300,200)
+   nextMG1.visible=false
+  nextMG2.visible=false
+  nextMG3.visible=false
+  nextMG4.visible=false
+  nextHG1.visible=false
+  nextHG2.visible=false
+  nextHG3.visible=false
+  nextHG4.visible=false
+  ge4.visible=true
+ }
+ if(mousePressedOver(nextEG4)){
+   nextEG4.visible=false
+   background("greenyellow");
+   background(bg)
+   text("how much percentage of nitrogen consist in earth's atmosphere",50,100)
+   text("78%",50,200)
+   text("56%",300,200)
+   nextMG1.visible=false
+   nextMG2.visible=false
+   nextMG3.visible=false
+   nextMG4.visible=false
+   nextHG1.visible=false
+   nextHG2.visible=false
+   nextHG3.visible=false
+   nextHG4.visible=false
+   ge5.visible=true
+ }
+
+ if(mousePressedOver(ge1)){
+   ge1.visible=false
+background("greenyellow")
+background(bg)
+text("32",100,100)
+ }
+   if(mousePressedOver(ge2)){
+     ge2.visible=false
+     background("greenyellow")
+     background(bg)
+     text("moon",100,100)
+   }
+if(mousePressedOver(ge3)){
+  ge3.visible=false
+
+  background("greenyellow")
+  background(bg)
+text("washington DC",100,100)
+  
+}
+if(mousePressedOver(ge4)){
+  ge4.visible=false
+  background("greenyellow")
+  background(bg)
+  text("vatican city",100,100)
+}
+if(mousePressedOver(ge5)){
+  ge5.visible=false;
+  background("greenyellow")
+  background(bg)
+  text("78",100,100)
+}
+if(mousePressedOver(gm1)){
+  gm1.visible=false
+  background("yellow")
+  background(bg)
+  text("lotus ",50,100)
+}
+if(mousePressedOver(gm2)){
+  gm2.visible=false
+  background("yellow")
+  background(bg)
+  text("moon",50,100)
+
+}
+if(mousePressedOver(gm3)){
+  gm3.visible=false
+  background("yellow")
+  background(bg)
+  text("8",50,100)
+}
+if(mousePressedOver(gm4)){
+  gm4.visible=false
+  background("yellow");
+  background(bg)
+  text("Russia",50,100)
+}
+if(mousePressedOver(gm5)){
+  gm5.visible=false
+  background("yellow")
+  background(bg)
+  text("Sri Lanka",50,100)
+}
+if(mousePressedOver(gh1)){
+  gh1.visible=false
+  background(266,100,50)
+  background(bg)
+  text("lime",50,100)
+}
+if(mousePressedOver(gh2)){
+  gh2.visible=false
+  background(266,100,50)
+  background(bg)
+text("tokyo",5,100)
+}
+if(mousePressedOver(gh3)){
+  gh3.visible=false
+  background(266,100,50)
+  background(bg)
+  text("lego",50,100)
+}
+if(mousePressedOver(gh4)){
+gh4.visible=false
+background(266,100,50)
+background(bg)
+text("china",50,100)
+}
+if(mousePressedOver(gh5)){
+  gh5.visible=false
+  background(266,100,50)
+  background(bg)
+  text("apollo",50,100)
+}
+ if(gameState==="play"){}
+ drawSprites()
+} 
