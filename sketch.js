@@ -115,7 +115,8 @@ gh5.scale=0.4
 function draw() {
   textSize(25)
  fill("black")
- 
+ if(displayWidth<400){
+   textSize(16);
   ge1.visible=false
   ge2.visible=false
   ge3.visible=false
@@ -150,7 +151,7 @@ function draw() {
    background(quiz)
    gameState="serve"
   }
-  if(mousePressedOver(gkQ)){ 
+  if(touches.length>0||mousePressedOver(gkQ)){ 
    gkQ.visible=false
    easyG.visible=true
    mediumG.visible=true
@@ -176,8 +177,9 @@ function draw() {
 
    background("orange")
    gameState="wait"
+    touches=[]
   }
-  if(mousePressedOver(easyG)){
+  if(touches.length>0||mousePressedOver(easyG)){
    easyG.visible=false
    mediumG.visible=false
    hardG.visible=false
@@ -209,8 +211,9 @@ function draw() {
    text("28",50,200)
    text("32",300,200)
    gameState="play"
+     touches=[]
   } 
-  if(mousePressedOver(mediumG)){
+  if(touches.length>0||mousePressedOver(mediumG)){
     easyG.visible=false
    mediumG.visible=false
    hardG.visible=false
@@ -243,8 +246,9 @@ text("national Flower of India is",50,100);
 text("lotus",50,200)
 text("rose",300,200)
 nextMG1.visible=true
+  touches=[]
   }
-  if(mousePressedOver(hardG)){
+  if(touches.length>0||mousePressedOver(hardG)){
     easyG.visible=false
     mediumG.visible=false
     hardG.visible=false
@@ -276,8 +280,9 @@ nextMG1.visible=true
  text("Which one is not a vegetable ",50,100);
  text("mushroom",50,200)
  text("lime",300,200)
+  touches=[] 
   }
-  if(mousePressedOver(nextHG1)){
+  if(touches.length>0||mousePressedOver(nextHG1)){
     nextHG1.visible=false
     nextHG2.visible=true
     gh1.visible=false
@@ -287,8 +292,9 @@ nextMG1.visible=true
     text("which is the biggest city in the world",50,100)
     text("New York",50,200)
     text("Tokyo",300,200)
+   touches=[]
   }
-  if(mousePressedOver(nextHG2)){
+  if(touches.length>0||mousePressedOver(nextHG2)){
     nextHG2.visible=false
     nextHG3.visible=true
     gh2.visible=false
@@ -298,8 +304,9 @@ nextMG1.visible=true
     text("the most expensive toy company in the world is",50,100)
     text("lego",50,200)
     text("Mattel",300,20)
+  touches=[]
   }
-  if(mousePressedOver(nextHG3)){
+  if(touches.length>0||mousePressedOver(nextHG3)){
     nextHG3.visible=false
     nextHG4.visible=true
     gh3.visible=false
@@ -309,8 +316,9 @@ nextMG1.visible=true
     text("where is yellow river",50,100)
     text("Brazil",50,200)
     text("China",300,200)
+   touches=[]
   }
-  if(mousePressedOver(nextHG4)){
+  if(touches.length>0||mousePressedOver(nextHG4)){
     nextHG4.visible=false
     gh4.visible=false
     gh5.visible=true
@@ -319,8 +327,9 @@ nextMG1.visible=true
     text("which is not a space station",50,100);
     text("mir",50,200)
     text("apollo",300,200)
+   touches=[]
   }
-  if(mousePressedOver(nextMG1)){
+  if(touches.length>0||mousePressedOver(nextMG1)){
     nextMG1.visible=false
     nextMG2.visible=true
     gm2.visible=true
@@ -330,8 +339,9 @@ nextMG1.visible=true
     text("which of these is not a luminous body",50,100);
     text("firefly",50,200)
     text("Moon",300,200)
+  touches=[]
   }
-  if(mousePressedOver(nextMG2)){
+  if(touches.length>0||mousePressedOver(nextMG2)){
     nextMG2.visible=false
     nextMG3.visible=true
     gm2.visible=false
@@ -343,8 +353,9 @@ nextMG1.visible=true
     text("9",300,200)
 
 gm3.visible=true
+  touches=[]
   }
-  if(mousePressedOver(nextMG3)){
+  if(touches.length>0||mousePressedOver(nextMG3)){
 nextMG3.visible=false
 nextMG4.visible=true
 gm4.visible=true
@@ -354,8 +365,9 @@ background(bg)
 text("which is the largest country in the world",50,100)
 text("China",50,200)
 text("Russia",300,200)
+  touches=[]
   }
-if(mousePressedOver(nextMG4)){
+if(touches.length>0||mousePressedOver(nextMG4)){
   nextMG4.visible=false
   gm5.visible=true
 gm4.visible=false
@@ -364,8 +376,9 @@ gm4.visible=false
   text("which country's flag doesn't have red, white or blue",50,100)
   text("Sri lanka",50,200)
   text("China",300,200)
+ touches=[]
 }
- if(mousePressedOver(nextEG1)){
+ if(touches.length>0||mousePressedOver(nextEG1)){
    nextEG1.visible=false
    background("greenyellow")
    background(bg)
@@ -382,8 +395,9 @@ gm4.visible=false
   nextHG3.visible=false
   nextHG4.visible=false
  ge2.visible=true
+  touches=[]
  }
- if(mousePressedOver(nextEG2)){
+ if(touches.length>0||mousePressedOver(nextEG2)){
    nextEG2.visible=false;
    background("greenyellow");
    background(bg)
@@ -400,8 +414,9 @@ gm4.visible=false
   nextHG1.visible=false
   nextHG1.visible=false
   ge3.visible=true
-}
- if(mousePressedOver(nextEG3)){
+ touches=[]
+ }
+ if(touches.length>0||mousePressedOver(nextEG3)){
    nextEG3.visible=false
    nextEG4.visible=true
    background("greenyellow")
@@ -418,8 +433,9 @@ gm4.visible=false
   nextHG3.visible=false
   nextHG4.visible=false
   ge4.visible=true
+ touches=[]
  }
- if(mousePressedOver(nextEG4)){
+ if(touches.length>0||mousePressedOver(nextEG4)){
    nextEG4.visible=false
    background("greenyellow");
    background(bg)
@@ -435,100 +451,116 @@ gm4.visible=false
    nextHG3.visible=false
    nextHG4.visible=false
    ge5.visible=true
+ touches=[]
  }
 
- if(mousePressedOver(ge1)){
+ if(touches.length>0||mousePressedOver(ge1)){
    ge1.visible=false
 background("greenyellow")
 background(bg)
 text("32",100,100)
+  touches=[]
  }
-   if(mousePressedOver(ge2)){
+   if(touches.length>0||mousePressedOver(ge2)){
      ge2.visible=false
      background("greenyellow")
      background(bg)
      text("moon",100,100)
+   touches=[]
    }
-if(mousePressedOver(ge3)){
+if(touches.length>0||mousePressedOver(ge3)){
   ge3.visible=false
 
   background("greenyellow")
   background(bg)
 text("washington DC",100,100)
   
+ touches=[]
 }
-if(mousePressedOver(ge4)){
+if(touches.length>0||mousePressedOver(ge4)){
   ge4.visible=false
   background("greenyellow")
   background(bg)
   text("vatican city",100,100)
+ touches=[]
 }
-if(mousePressedOver(ge5)){
+if(touches.length>0||mousePressedOver(ge5)){
   ge5.visible=false;
   background("greenyellow")
   background(bg)
   text("78",100,100)
+ touches=[]
 }
-if(mousePressedOver(gm1)){
+if(touches.length>0||mousePressedOver(gm1)){
   gm1.visible=false
   background("yellow")
   background(bg)
   text("lotus ",50,100)
+ touches=[]
 }
-if(mousePressedOver(gm2)){
+if(touches.length>0||mousePressedOver(gm2)){
   gm2.visible=false
   background("yellow")
   background(bg)
   text("moon",50,100)
 
+ touches=[]
 }
-if(mousePressedOver(gm3)){
+if(touches.length>0||mousePressedOver(gm3)){
   gm3.visible=false
   background("yellow")
   background(bg)
   text("8",50,100)
+ touches=[]
 }
-if(mousePressedOver(gm4)){
+if(touches.length>0||mousePressedOver(gm4)){
   gm4.visible=false
   background("yellow");
   background(bg)
   text("Russia",50,100)
+ touches=[]
 }
-if(mousePressedOver(gm5)){
+if(touches.length>0||mousePressedOver(gm5)){
   gm5.visible=false
   background("yellow")
   background(bg)
   text("Sri Lanka",50,100)
+ touches=[]
 }
-if(mousePressedOver(gh1)){
+if(touches.length>0||mousePressedOver(gh1)){
   gh1.visible=false
   background(266,100,50)
   background(bg)
   text("lime",50,100)
+ touches=[]
 }
-if(mousePressedOver(gh2)){
+if(touches.length>0||mousePressedOver(gh2)){
   gh2.visible=false
   background(266,100,50)
   background(bg)
 text("tokyo",5,100)
+ touches=[]
 }
-if(mousePressedOver(gh3)){
+if(touches.length>0||mousePressedOver(gh3)){
   gh3.visible=false
   background(266,100,50)
   background(bg)
   text("lego",50,100)
+ touches=[]
 }
-if(mousePressedOver(gh4)){
+if(touches.length>0||mousePressedOver(gh4)){
 gh4.visible=false
 background(266,100,50)
 background(bg)
 text("china",50,100)
+ touches=[]
 }
-if(mousePressedOver(gh5)){
+if(touches.length>0||mousePressedOver(gh5)){
   gh5.visible=false
   background(266,100,50)
   background(bg)
   text("apollo",50,100)
+ touches=[]
 }
  if(gameState==="play"){}
  drawSprites()
