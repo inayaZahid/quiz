@@ -565,3 +565,4 @@ if(touches.length>0||mousePressedOver(gh5)){
  if(gameState==="play"){}
  drawSprites()
 } 
+}
