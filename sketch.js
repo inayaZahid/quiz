@@ -2,7 +2,7 @@
   var gameState="serve"
 var score=0
 function preload(){
- gkQi=loadImage("gkButtoni.png")
+ gkQi=loadImage("gkbuttoni.png");
  nextI=loadImage("next.png")
  easyBG=loadImage("easyM.png")
  mediumBG=loadImage("mediumM.png")
